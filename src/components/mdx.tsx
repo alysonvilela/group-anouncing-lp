@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { Badge } from './badge'
 
-import { FormattedDate } from '@/components/FormattedDate'
 
 export const a = Link
 
@@ -29,7 +29,7 @@ function ContentWrapper({
   ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
   return (
-    <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
+    <div className="mx-auto max-w-7xl px-10 lg:flex lg:px-8">
       <div className="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
         <div
           className={clsx(
@@ -43,25 +43,25 @@ function ContentWrapper({
   )
 }
 
-function ArticleHeader({ id, date }: { id: string; date: string | Date }) {
+function ArticleHeader({ id, step }: { id: string; step?: number }) {
   return (
     <header className="relative mb-10 xl:mb-0">
-      <div className="pointer-events-none absolute top-0 left-[max(-0.5rem,calc(50%-18.625rem))] z-50 flex h-4 items-center justify-end gap-x-2 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:left-0 lg:min-w-lg xl:h-8">
+      <div className="pointer-events-none absolute top-0 left-[max(0.5rem,calc(50%-18.625rem))] z-50 flex h-4 items-center justify-end gap-x-2 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:left-0 lg:min-w-lg xl:h-8">
         <Link href={`#${id}`} className="inline-flex">
-          <FormattedDate
-            date={date}
-            className="hidden xl:pointer-events-auto xl:block xl:text-2xs/4 xl:font-medium xl:text-white/50"
-          />
+          {step && (
+                      <Badge className='flex items-center justify-center -mt-1 inline-flex w-6 h-6'>{step}</Badge>
+          )}
         </Link>
         <div className="h-0.25 w-3.5 bg-gray-400 lg:-mr-3.5 xl:mr-0 xl:bg-gray-300" />
       </div>
       <ContentWrapper>
         <div className="flex">
           <Link href={`#${id}`} className="inline-flex">
-            <FormattedDate
-              date={date}
-              className="text-2xs/4 font-medium text-gray-500 xl:hidden dark:text-white/50"
-            />
+            {step && (
+              <span className="text-2xs/4 font-medium text-gray-500 xl:hidden dark:text-[#04441c]/50">
+                Passo {step}
+              </span>
+            )}
           </Link>
         </div>
       </ContentWrapper>
@@ -72,10 +72,12 @@ function ArticleHeader({ id, date }: { id: string; date: string | Date }) {
 export const article = function Article({
   id,
   date,
+  step,
   children,
 }: {
   id: string
   date: string | Date
+  step?: number | string
   children: React.ReactNode
 }) {
   let heightRef = useRef<React.ElementRef<'div'>>(null)
@@ -102,6 +104,8 @@ export const article = function Article({
     }
   }, [])
 
+  let stepNumber = typeof step === 'string' ? parseInt(step, 10) : step
+
   return (
     <article
       id={id}
@@ -109,7 +113,7 @@ export const article = function Article({
       style={{ paddingBottom: `${heightAdjustment}px` }}
     >
       <div ref={heightRef}>
-        <ArticleHeader id={id} date={date} />
+        <ArticleHeader id={id} step={stepNumber} />
         <ContentWrapper className="typography" data-mdx-content>
           {children}
         </ContentWrapper>

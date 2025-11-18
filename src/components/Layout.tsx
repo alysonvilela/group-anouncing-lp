@@ -32,22 +32,13 @@ function Glow() {
   let id = useId()
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden bg-gray-950 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-lg">
+    <div className="absolute inset-0 -z-10 overflow-hidden bg-[#fcf5eb] lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-lg">
       <svg
         className="absolute -bottom-48 left-[-40%] h-320 w-[180%] lg:top-[-40%] lg:-right-40 lg:bottom-auto lg:left-auto lg:h-[180%] lg:w-7xl"
         aria-hidden="true"
       >
         <defs>
-          <radialGradient id={`${id}-desktop`} cx="100%">
-            <stop offset="0%" stopColor="rgba(56, 189, 248, 0.3)" />
-            <stop offset="53.95%" stopColor="rgba(0, 71, 255, 0.09)" />
-            <stop offset="100%" stopColor="rgba(10, 14, 23, 0)" />
-          </radialGradient>
-          <radialGradient id={`${id}-mobile`} cy="100%">
-            <stop offset="0%" stopColor="rgba(56, 189, 248, 0.3)" />
-            <stop offset="53.95%" stopColor="rgba(0, 71, 255, 0.09)" />
-            <stop offset="100%" stopColor="rgba(10, 14, 23, 0)" />
-          </radialGradient>
+
         </defs>
         <rect
           width="100%"
@@ -97,7 +88,7 @@ function FixedSidebar({
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <FixedSidebar main={<Intro />} footer={<IntroFooter />} />
+      <FixedSidebar main={<Intro />} footer={<div />} />
       <ThemeToggle />
       <div className="relative flex-auto">
         <Timeline />

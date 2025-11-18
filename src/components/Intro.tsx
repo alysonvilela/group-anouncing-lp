@@ -45,41 +45,21 @@ export function Intro() {
     <>
       <div>
         <Link href="/">
-          <Logo className="inline-block h-8 w-auto" />
+          <Logo className="inline-block h-8 w-auto text-[#04441c]" />
         </Link>
       </div>
-      <h1 className="mt-14 font-display text-4xl/tight font-light text-white">
-        Open-source Git client{' '}
-        <span className="text-sky-300">for macOS minimalists</span>
+      <h1 className="mt-4 font-display text-4xl/tight font-light text-[#04441c]">
+        Pare de perder promoções. Economize em cada compra.
       </h1>
-      <p className="mt-4 text-sm/6 text-gray-300">
-        Commit is a lightweight Git client you can open from anywhere any time
-        you’re ready to commit your work with a single keyboard shortcut. It’s
-        fast, beautiful, and completely unnecessary.
+      <p className="mt-4 text-sm/6 text-[#04441c]/50">
+        As melhores ofertas do Mercado Livre, Amazon e Shopee direto no seu WhatsApp. 
+        Não perca mais nenhum desconto. Economize sem precisar ficar procurando.
       </p>
       <SignUpForm />
-      <div className="mt-8 flex flex-wrap justify-center gap-x-1 gap-y-3 sm:gap-x-2 lg:justify-start">
-        <IconLink href="#" icon={BookIcon} className="flex-none">
-          Documentation
-        </IconLink>
-        <IconLink href="#" icon={GitHubIcon} className="flex-none">
-          GitHub
-        </IconLink>
-        <IconLink href="/feed.xml" icon={FeedIcon} className="flex-none">
-          RSS
-        </IconLink>
-      </div>
     </>
   )
 }
 
 export function IntroFooter() {
-  return (
-    <p className="flex items-baseline gap-x-2 text-[0.8125rem]/6 text-gray-500">
-      Brought to you by{' '}
-      <IconLink href="#" icon={XIcon} compact>
-        Joe Davola
-      </IconLink>
-    </p>
-  )
+  return null
 }

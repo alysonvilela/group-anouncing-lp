@@ -14,16 +14,16 @@ const inter = Inter({
 })
 
 const monaSans = localFont({
-  src: '../fonts/Mona-Sans.var.woff2',
+  src: '../fonts/obviously-narrow-black.woff2',
   display: 'swap',
-  variable: '--font-mona-sans',
+  variable: '--font-obviously',
   weight: '200 900',
 })
 
 export const metadata: Metadata = {
-  title: 'Commit - Open-source Git client for macOS minimalists',
+  title: 'Promoções Exclusivas - Mercado Livre, Amazon e Shopee',
   description:
-    'Commit is a lightweight Git client you can open from anywhere any time you’re ready to commit your work with a single keyboard shortcut. It’s fast, beautiful, and completely unnecessary.',
+    'Receba as melhores ofertas do Mercado Livre, Amazon e Shopee direto no WhatsApp. Pare de perder promoções e economize em cada compra sem precisar ficar procurando.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
