@@ -11,16 +11,16 @@ function ButtonInner({
   variant?: 'whatsapp'
 }) {
   const gradientClass = variant === 'whatsapp'
-    ? 'bg-linear-to-b from-[#25d366] to-[#20ba5a]'
+    ? 'bg-linear-to-b from-[#2de576] to-[#25d366] group-hover:from-[#3ef586] group-hover:to-[#2de576]'
     : 'bg-linear-to-b from-white/80 to-white'
   const shadowClass = variant === 'whatsapp'
-    ? 'shadow-[inset_0_1px_1px_#25d366]'
+    ? 'shadow-[inset_0_1px_1px_#25d366] group-hover:shadow-[inset_0_1px_1px_#2de576]'
     : 'shadow-[inset_0_1px_1px_white]'
   const opacityClass = variant === 'whatsapp'
-    ? 'opacity-40 transition-opacity group-hover:opacity-50'
+    ? 'opacity-40 transition-opacity group-hover:opacity-60'
     : 'opacity-10 transition-opacity group-hover:opacity-15'
   const shadowOpacityClass = variant === 'whatsapp'
-    ? 'opacity-20 transition-opacity group-hover:opacity-25'
+    ? 'opacity-20 transition-opacity group-hover:opacity-30'
     : 'opacity-7.5 transition-opacity group-hover:opacity-10'
 
   return (
@@ -43,8 +43,8 @@ export function Button({
   | ({ href?: undefined } & React.ComponentPropsWithoutRef<'button'>)
 )) {
   className = clsx(
-      'group relative isolate flex-none rounded-md py-1.5 text-[0.8125rem]/6 font-semibold text-white',
-      variant === 'whatsapp' ? 'bg-[#25d366]' : '',
+      'group relative isolate flex-none rounded-md py-1.5 text-[0.8125rem]/6 font-semibold text-white transition-all',
+      variant === 'whatsapp' ? 'bg-[#25d366] hover:bg-[#2de576] hover:scale-105' : '',
       arrow ? 'pl-2.5 pr-[calc(9/16*1rem)]' : 'px-2.5',
       className,
   )

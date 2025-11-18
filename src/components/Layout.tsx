@@ -37,21 +37,6 @@ function Glow() {
         className="absolute -bottom-48 left-[-40%] h-320 w-[180%] lg:top-[-40%] lg:-right-40 lg:bottom-auto lg:left-auto lg:h-[180%] lg:w-7xl"
         aria-hidden="true"
       >
-        <defs>
-
-        </defs>
-        <rect
-          width="100%"
-          height="100%"
-          fill={`url(#${id}-desktop)`}
-          className="hidden lg:block"
-        />
-        <rect
-          width="100%"
-          height="100%"
-          fill={`url(#${id}-mobile)`}
-          className="lg:hidden"
-        />
       </svg>
       <div className="absolute inset-x-0 right-0 bottom-0 h-px bg-white mix-blend-overlay lg:top-0 lg:left-auto lg:h-auto lg:w-px" />
     </div>
