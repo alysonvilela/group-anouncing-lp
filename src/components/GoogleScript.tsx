@@ -1,12 +1,21 @@
-"use client";
+import Script from 'next/script'
 
-import { NextScript } from "next/document";
-import { useEffect } from "react";
-
-export const GoogleAnalytics = () => {
-	useEffect(() => {
-		if (window !== undefined) {
-		}
-	}, []);
-	return <NextScript />;
-};
+export function GoogleScript() {
+  return (
+    <>
+      {/* Google tag (gtag.js) */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-395441137"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-395441137');
+        `}
+      </Script>
+    </>
+  )
+}

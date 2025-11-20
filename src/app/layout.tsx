@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 
 import { Providers } from '@/app/providers'
+import { GoogleScript } from '@/components/GoogleScript'
 
 import '@/styles/tailwind.css'
 
@@ -42,24 +43,9 @@ export default function RootLayout({
       className={clsx('h-full antialiased', inter.variable, monaSans.variable)}
       suppressHydrationWarning
     >
-      <head>
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-395441137"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-							window.dataLayer = window.dataLayer || [];
-							function gtag(){dataLayer.push(arguments);}
-							gtag('js', new Date());
-							gtag('config', 'AW-395441137');
-						`,
-          }}
-        />
-      </head>
+      <head></head>
       <body className="flex min-h-full flex-col bg-white dark:bg-gray-950">
+        <GoogleScript />
         <Providers>{children}</Providers>
       </body>
     </html>
