@@ -1,9 +1,14 @@
 import { useId } from "react";
 
 import { Button } from "@/components/Button";
+import { trackConversion } from "@/components/GoogleScript";
 
 export function SignUpForm() {
 	const _id = useId();
+
+	const handleClick = () => {
+		trackConversion();
+	};
 
 	return (
 		<form className="relative isolate mt-8 flex items-center pr-1">
@@ -26,6 +31,7 @@ export function SignUpForm() {
 				href="https://chat.whatsapp.com/HoOyrFuyQAT9rIkNzsrhrD"
 				target="_blank"
 				arrow={false}
+				onClick={handleClick}
 			>
 				Quero receber ofertas exclusivas
 			</Button>
